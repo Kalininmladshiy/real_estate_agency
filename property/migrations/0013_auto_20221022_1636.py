@@ -7,7 +7,7 @@ from django.db import transaction
 def create_connection_flat_with_owners(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
-    flats = Flat.objects.all()
+    flats = Flat.objects.all().iterator()
     for flat in flats:
         with transaction.atomic():
             flat.flats_by.get_or_create(owner=flat.owner)
