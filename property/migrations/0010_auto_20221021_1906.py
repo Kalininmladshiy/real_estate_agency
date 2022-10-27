@@ -9,10 +9,9 @@ def change_phone_number(apps, schema_editor):
         phone_number = phonenumbers.parse(flat.owners_phonenumber, 'RU')
         if phonenumbers.is_valid_number(phone_number):
             flat.owner_pure_phone = phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
-            flat.save()
         else:
             flat.owner_pure_phone = '+12125552368'
-            flat.save()
+        flat.save()
 
 
 class Migration(migrations.Migration):
