@@ -10,7 +10,7 @@ def change_phone_number(apps, schema_editor):
         if phonenumbers.is_valid_number(phone_number):
             flat.owner_pure_phone = phonenumbers.format_number(phone_number, phonenumbers.PhoneNumberFormat.E164)
         else:
-            flat.owner_pure_phone = '+12125552368'
+            flat.owner_pure_phone = ''
         flat.save()
 
 
